@@ -2,7 +2,7 @@ var challengeApp = angular.module('challengeApp', [])
 
 .controller('mainCtrl', function mainCtrl($scope) {
   $scope.name = "Celine";
- /* $("#fileUploader").on('change', function (changeEvent){
+  $("#fileUploader").on('change', function (changeEvent){
       	console.log('hello, is it me youre looking for?');
         var files = changeEvent.target.files;
         console.dir(files);
@@ -17,7 +17,7 @@ var challengeApp = angular.module('challengeApp', [])
                 console.dir(res);
           };
         }
-  }); */
+  });
 
 })
 

@@ -1,19 +1,25 @@
 <?php
-/*
- * Converts CSV to JSON
- * Example uses Google Spreadsheet CSV feed
- */
-header('Content-type: application/json');
-// Set your CSV feed
-$fpath = 'https://docs.google.com/spreadsheets/d/1B5dLfCzVWaS7zr_uqnULiCUNNOx3PssbAkII_m8eIcU/pub?output=csv';
-// Arrays we'll use later
-// Function to convert CSV into associative array
-$file = fopen($fpath, 'r');
 
-while (($line = fgetcsv($file)) !== FALSE) {
-  //$line is an array of the csv elements
-  print_r($line);
+header('Content-type: application/json');
+
+$fpath = 'https://docs.google.com/spreadsheets/d/1B5dLfCzVWaS7zr_uqnULiCUNNOx3PssbAkII_m8eIcU/pub?output=csv';
+
+function parseCsv($file, $delimiter){
+  $handle = fopen($file, 'r');
+  if($handle !== FALSE){
+    while (($line = fgetcsv($handle, 4000, $delimiter, '"')) !== FALSE) {
+      //$line is an array of the csv elements
+      for ($j = 0; $j < count($lineArray); $j++) {
+        $arr[$i][$j] = $lineArray[$j];
+      }
+      $i++;
+    }
+    fclose($handle);
+  }
+  return $arr;
 }
+
+
 
 // function csvToArray($file, $delimiter) {
 //   if (($handle = fopen($file, 'r')) !== FALSE) {
