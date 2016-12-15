@@ -2,7 +2,11 @@
 
 header('Content-type: application/json');
 
-$fpath = 'https://docs.google.com/spreadsheets/d/1B5dLfCzVWaS7zr_uqnULiCUNNOx3PssbAkII_m8eIcU/pub?output=csv';
+// $fpath = 'https://docs.google.com/spreadsheets/d/1B5dLfCzVWaS7zr_uqnULiCUNNOx3PssbAkII_m8eIcU/pub?output=csv';
+$postdata = file_get_contents("php://input");
+$request = json_decode($postdata);
+$csvFile = $request->file;
+echo $csvFile;
 
 function parseCsv($file, $delimiter){
   $handle = fopen($file, 'r');
