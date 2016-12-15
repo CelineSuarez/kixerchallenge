@@ -23,7 +23,7 @@ function parseCsv($file, $delimiter){
   return $arr;
 }
 
-
+$data = parseCsv($csvFile, ",")
 
 // function csvToArray($file, $delimiter) {
 //   if (($handle = fopen($file, 'r')) !== FALSE) {

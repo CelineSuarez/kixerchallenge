@@ -7,7 +7,9 @@ var challengeApp = angular.module('challengeApp', [])
       $http({
         method: 'POST',
         url: '../ajax/index.php',
-        data: csvFile
+        data: {
+          file: csvFile
+        }
       }).then(function successCallback(response) {
           console.dir('the response worked');
           console.dir(response);
